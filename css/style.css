@@ -1,0 +1,552 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #010101;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 9%;
+  /* background-color: rgb(1, 1, 1, 0.3); */
+  /* border-bottom: 1px solid #513c28; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: transparent;
+  backdrop-filter: blur(8px);
+}
+
+.navbar .navbar-logo {
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.navbar .navbar-logo:hover {
+  scale: 108%;
+}
+
+.navbar .navbar-nav a {
+  color: white;
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: #808080;
+  text-shadow: 1px 1px 3px rgba(1, 1, 3, 1);
+}
+
+.navbar .navbar-nav a::after {
+  content: " ";
+  display: block;
+  padding-bottom: 0.1rem;
+  border-bottom: 0.15rem solid #808080;
+  transform: scaleX(0);
+  transition: 0.25s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* .navbar .login {
+  padding: 0.3rem 1rem;
+  border: 0.2rem solid transparent;
+  border-radius: 60rem;
+
+  background-color: #808080;
+
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+
+  cursor: pointer;
+  transition: all 0.15s ease-in;
+
+  box-shadow: rgba(0, 0, 0, 0.5) -1px 4px 8px;
+}
+
+.navbar .login:hover {
+  border: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
+} */
+
+.navbar .navbar-toggle a {
+  color: #fff;
+  margin: 0 0.5rem;
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+/* .hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url(../img/mount-kelimutu.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+} */
+
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(1, 1, 3, 3) 2%,
+    rgba(255, 255, 255, 0) 83%
+  );
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 130px;
+  width: 100%;
+  text-align: center;
+}
+
+.hero .content h1 {
+  padding: 2rem 8%;
+  max-width: 80rem;
+  width: 100%;
+  text-align: left;
+  font-size: 7em;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+  line-height: 1;
+}
+
+.content .content-text p {
+  text-align: left;
+  padding: 0 42rem 0 7rem;
+  font-weight: 100;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 3px rgba(1, 1, 3, 1);
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  height: 100vh; /* Membuat slideshow container memenuhi tinggi layar */
+  overflow: hidden; /* Mengatur overflow agar gambar slideshow tidak keluar dari batas container */
+  position: relative;
+  margin: auto;
+}
+
+/* Fading animation */
+.mySlides-fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.mySlides-fade img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mengatur gambar agar mengisi seluruh ruang slide tanpa merubah aspek rasio */
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.main h2 {
+  margin: 1rem 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.main p {
+  text-align: center;
+  max-width: 30rem;
+  margin: auto; /* biar ketengah */
+  font-weight: 100;
+  line-height: 1.2;
+  font-size: 1rem;
+}
+
+.wide-sea,
+.mountains,
+.island {
+  padding-top: 5rem;
+}
+
+.main .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem 0 0 0;
+  justify-content: center;
+}
+
+.main .card-container .card {
+  text-align: center;
+  max-width: 300px;
+  width: 100%; /* Lebar kontainer card akan mengikuti lebar parentnya */
+  margin: 2rem 0; /* Jarak di sekitar kontainer card */
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.card-container .card:hover {
+  transform: scale(1.1, 1.1);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.card-container:hover > .card:not(:hover) {
+  filter: blur(6px);
+  transform: scale(0.9, 0.9);
+  opacity: 0.5;
+  transition: 0.3s ease;
+}
+
+.main .card-container .card img {
+  border-radius: 0.8rem;
+  max-width: 100%;
+  height: 420px;
+}
+
+.main .card-container .card .card-title {
+  margin: 3px auto 6px;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.card-container .card .map {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 78%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1.2rem 3.2rem 3.2rem 1.2rem;
+  border-radius: 50%;
+}
+
+.card-container .card .mapp {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 73%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1.2rem 3.2rem 3.2rem 1.2rem;
+  border-radius: 50%;
+}
+
+.card-container .card a {
+  color: white;
+}
+.card-container .card a:hover {
+  scale: 110%;
+}
+
+/* footer */
+footer {
+  background-color: #252525;
+  text-align: center;
+  padding: 1rem 0 0;
+  margin-top: 3rem;
+  border-radius: 2.5rem;
+}
+
+.wrapper .desc {
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 1.8rem 4rem;
+  line-height: 1.4;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #fff;
+}
+
+footer .socials a {
+  color: white;
+}
+
+.socials {
+  display: flex;
+  padding: 1.2rem 0 2.2rem 0;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  gap: 40px;
+}
+
+.wrapper .icons {
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  object-position: center;
+  backdrop-filter: blur(5px);
+  color: #ffffff;
+}
+
+.wrapper .icons span {
+  display: block;
+  height: 60px;
+  width: 60px;
+  background: transparent;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  color: #000;
+}
+
+.wrapper .icons a {
+  line-height: 60px;
+  font-size: 26px;
+  columns: #fff;
+}
+
+.wrapper .icons .tooltip {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  background: #ffffff;
+  color: #ffffff;
+  padding: 6px 14px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 25px;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icons:hover .tooltip {
+  top: -60px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.wrapper .icons:hover span {
+  color: #ffffff;
+}
+
+.wrapper .icons:hover span,
+.wrapper .icons:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+}
+
+.socials .instagram:hover span,
+.socials .instagram:hover .tooltip {
+  background: #c13584;
+}
+
+.socials .github:hover span,
+.socials .github:hover .tooltip {
+  background: #000000;
+}
+
+.socials .linkedin:hover span,
+.socials .linkedin:hover .tooltip {
+  background: #0077b5;
+}
+
+footer .links {
+  margin-bottom: 2.5rem;
+}
+
+footer .links a {
+  color: white;
+  padding: 0.7rem 1rem;
+  text-shadow: 1px 1.2px 1.5px rgba(1, 1, 3, 1);
+}
+
+footer .links a:hover {
+  color: #010101;
+}
+
+footer .credit {
+  background-color: #010101;
+  padding: 1.2rem 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+/* On smaller screens, decrease text size */
+@media (max-width: 1366px) {
+  .content .content-text p {
+    padding: 0 8%;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 64.5%;
+  }
+
+  #hamburger-menu {
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #fff;
+    width: 30rem;
+    height: 100vh;
+    transition: 0.5s;
+    border-radius: 1rem 1rem;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  /* .navbar .login {
+    color: #252525;
+    display: block;
+    margin: 2rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+  .navbar .login:hover {
+    background-color: #808080;
+  } */
+
+  .navbar .navbar-nav a {
+    color: #252525;
+    display: block;
+    margin: 2rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+
+  .navbar .navbar-nav a:hover {
+    text-shadow: none;
+  }
+
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.2);
+  }
+
+  .text {
+    color: #f2f2f2;
+    top: 8rem;
+    width: 100%;
+    z-index: 99;
+  }
+
+  .hero .content h1 {
+    font-size: 5.5rem;
+    padding: 0 8%;
+  }
+
+  .slideshow-container {
+    height: 100%;
+  }
+
+  .hero::after {
+    width: 0;
+    height: 0;
+  }
+
+  .hero .slideshow-container::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    bottom: 0;
+    background: linear-gradient(
+      0deg,
+      rgba(1, 1, 3, 1) 1.5%,
+      rgba(255, 255, 255, 0) 90%
+    );
+  }
+
+  .content .content-text p {
+    padding: 1rem 8%;
+    font-weight: 100;
+    font-size: 1.3rem;
+    text-shadow: 1px 1px 3px rgba(1, 1, 3, 1);
+    color: #ffffff;
+    line-height: 1.3;
+  }
+
+  .wide-sea {
+    padding-top: 5rem;
+  }
+
+  .wrapper .icons span {
+    height: 48px;
+    width: 48px;
+  }
+
+  .card-container .card .map {
+    bottom: 1.4rem;
+    left: 82%;
+  }
+
+  .card-container .card .mapp {
+    bottom: 1.5rem;
+    left: 77%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+
+  .hero .content h1 {
+    font-size: 5rem;
+  }
+  .text {
+    font-size: 11px;
+  }
+}
