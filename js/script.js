@@ -31,3 +31,12 @@ document.addEventListener("click", function (e) {
     navbarNav.classList.remove("active");
   }
 });
+
+//agar ketika klik salah satu list a, hamburger menu hilang
+const navLinks = document.querySelectorAll(".navbar-nav a");
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    navbarNav.classList.remove("active");
+  });
+});
